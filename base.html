@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multimodal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="main_stylesheet.css">
+
+</head>
+
+<body>
+
+  <div id='popups' class='popups'>
+      <div class='sign-up-banner'>
+	<h1>Sign up to read more</h1>
+
+	<div class='signup-fields'>
+	    <h2>Email:</h2>
+	    <textarea></textarea>
+
+	    <br></br>
+	    <h2>Password:</h2>
+	    <textarea></textarea>
+	    <br></br>
+	    <h2>Social Security Number (for easy verified status)</h2>
+	    <textarea></textarea>
+	    <br></br>
+	    <div>
+	    <input type="radio" checked><p>Sign up for our weekly newsletter!</p></input>
+	    </div>
+	    <button><h2>Sign up now!</h2></button>
+	</div>
+      </div>
+      <div class="popup-ad" id="popupAd">
+	<button class="close-btn" onclick="createPopup()">&times;</button>
+	<h4>Special Offer!</h4>
+	<p>Get 25% off your first order. Don't miss out!</p>
+	<button onclick="">Shop Now</button>
+      </div>
+
+  </div>
+
+  <header>
+    <div class='logo-wrapper'>
+	<img class="logo" src="images/logo.png"> 
+    </div>
+    <div class='title-and-slogan'>
+	<h1>Vapid</h1>
+	<p>Your data is safe with us</p>
+    </div>
+
+    <nav id="nav-main">
+      <a href="javascript:void(0);" class="icon" onclick="toggle_nav()">
+	<i class="fa fa-bars"></i>
+      </a>
+      <a class="nav-option" href="#">HOME</a>
+      <a class="nav-option" href="#">LOGIN</a>
+    </nav>
+  </header>
+
+  <nav class="sub-nav" id="nav-overflow">
+    <a href="#">HOME</a>
+    <a href="#">LOGIN</a>
+  </nav>
+
+  <div class='main-post'>
+      <div class='post-header'>
+          <img src="images/profile_pic.png">
+	  <h3>Emmanuel Goldstein</h3>
+      </div>
+      <div class='post-content'>
+	  <h2>How Social Media Rewires the Teenage Brain (And Why We Keep Scrolling Anyway)</h2>
+	  <p> Social media has become an influential part of all of our lives, 
+		especially those of us who are teenagers. Once marketed as a way
+		of connecting
+		with old friends, social media platforms
+		like TikTok and Instagram have 
+		become black holes of time and energy. It is not uncommon to have
+		an average screentime of several hours per day on just those two 
+		apps. Over the course of a couple years, people amass thousands of
+		hours doom scrolling without a thought in mind. 
+		This doesn't even mention the way social media destroys 
+		attention span or the suspicious tracking of our every move. 
+		<br>
+		So how do these companies keep us coming back? It would seem as
+		though people wouldn't want to waste a second of their lives, let
+		alone tens of thousands of hours rotting in bed, eyes glued to 
+		their screens. How is it that whenever deleted, these apps keep
+		coming back to waste more time? The answer is pretty simple...
+	    </p>
+	    <div class='read-more' onclick='begin_popups()'><p class='fake-link'>Continue reading</p></div>
+	</div>
+  </div>
+
+</body>
+
+
+<script>
+function toggle_nav() {
+  var x = document.getElementById("nav-overflow");
+  if (x.className === "sub-nav") {
+    x.className += " responsive";
+  } else {
+    x.className = "sub-nav";
+  }
+}
+
+function begin_popups() {
+    const x = document.getElementById("popups");
+    x.className += " toggled";
+
+	setTimeout(() => {
+	    createPopup(); 
+	}, 3000);
+	setTimeout(() => {
+	    createPopup(); 
+	}, 5000);
+	setTimeout(() => {
+	    createPopup(); 
+	}, 8000);
+
+}
+
+  function createPopup() {
+    const popup = document.createElement('div');
+    popup.className = 'popup-ad';
+    popup.innerHTML = `
+      <button class="close-btn" onclick="createPopup()">&times;</button>
+      <h4>Ad</h4>
+      <p>Click here for a deal you'll regret!</p>
+      <button onclick="')">Buy Now</button>
+    `;
+    popup.height = '100px';
+    const maxX = window.innerWidth - 220;
+    const maxY = window.innerHeight - 150;
+
+    const x = Math.floor(Math.random() * maxX);
+    const y = Math.floor(Math.random() * maxY);
+
+    popup.style.left = `${x}px`;
+    popup.style.top = `${y}px`;
+
+    document.body.appendChild(popup);
+  }
+
+
+
+</script>
+</html>
+
