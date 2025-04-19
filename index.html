@@ -40,7 +40,40 @@
 	<p>Get 25% off your first order. Don't miss out!</p>
 	<button onclick="">Shop Now</button>
       </div>
+<iframe 
+  id="ytPlayer"
+  width="560" 
+  height="315" 
+  src="https://www.youtube.com/embed/x60bVeOTT2U?enablejsapi=1"
+  frameborder="0"
+  allow="autoplay; encrypted-media"
+  allowfullscreen>
+</iframe>
+<iframe 
+  id="ytPlayer2"
+  width="560" 
+  height="315" 
+  src="https://www.youtube.com/embed/UJPkT6e1r7Y?enablejsapi=1"
 
+  frameborder="0"
+  allow="autoplay; encrypted-media"
+  allowfullscreen>
+</iframe>
+<iframe 
+  id="ytPlayer3"
+  width="560" 
+  height="315" 
+  src="https://www.youtube.com/embed/Gat5GJ4eHXY?enablejsapi=1"
+
+  frameborder="0"
+  allow="autoplay; encrypted-media"
+  allowfullscreen>
+</iframe>
+
+<div id="final-banner" class='final-banner'>
+    <h2>Social media ruins your brain permanently</h2>
+    <p>Go live life</p>
+</div>
   </div>
 
   <header>
@@ -91,7 +124,7 @@
 		their screens. How is it that whenever deleted, these apps keep
 		coming back to waste more time? The answer is pretty simple...
 	    </p>
-	    <div class='read-more' onclick='begin_popups()'><p class='fake-link'>Continue reading</p></div>
+	    <div class='read-more' id='enable-sound' onclick='begin_popups()'><p class='fake-link'>Continue reading (warning: sound)</p></div>
 	</div>
   </div>
 
@@ -115,6 +148,8 @@ function begin_popups() {
 	setTimeout(() => {
 	    createPopup(); 
 	}, 3000);
+	
+
 	setTimeout(() => {
 	    createPopup(); 
 	}, 5000);
@@ -122,6 +157,65 @@ function begin_popups() {
 	    createPopup(); 
 	}, 8000);
 
+	setTimeout(() => {
+	    rightFootCreep();
+	}, 8000);
+	setTimeout(() => {
+	    chickenJockey();
+	}, 12000);
+	setTimeout(() => {
+	    penguin();
+	}, 14000);
+	setTimeout(() => {
+	    document.getElementById("final-banner").style.display = "block";
+	}, 15500);
+
+}
+  let player;
+
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('ytPlayer');
+    player2 = new YT.Player('ytPlayer2');
+    player3 = new YT.Player('ytPlayer3');
+  }
+
+  document.getElementById('enable-sound').addEventListener('click', () => {
+    if (player) {
+      setTimeout(()=> {
+      player.unMute();  // just in case it's muted
+	  player.playVideo(); }, 8000);
+    }
+    if ( player2) {
+	setTimeout(()=> {
+	player2.unMute();  // just in case it's muted
+        player2.playVideo(); }, 12000);
+    }
+    if( player3) {
+	setTimeout(() => {
+	    player3.unMute();
+	    player3.playVideo();
+	}, 14000);
+    }
+  });
+  // Load the IFrame Player API
+  const tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  document.body.appendChild(tag);
+
+function rightFootCreep() {
+ 
+    const d = document.getElementById('ytPlayer');
+    d.style.display = "block";
+}
+
+function chickenJockey() {
+    const d = document.getElementById('ytPlayer2');
+    d.style.display = "block";
+}
+
+function penguin() {
+    const d = document.getElementById('ytPlayer3');
+    d.style.display = "block";
 }
 
   function createPopup() {

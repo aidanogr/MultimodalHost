@@ -3,7 +3,39 @@
       padding: 0;
       box-sizing: border-box;
     }
-
+#ytPlayer {
+    z-index: 900;
+    position: absolute;
+    bottom:50px;
+    left: 20%;
+    display: none;
+}
+#ytPlayer2 {
+    z-index: 900;
+    position: absolute;
+    top:50px;
+    right: 20%;
+    display: none;
+}
+#ytPlayer3 {
+    z-index: 900;
+    position: absolute;
+    top:500px;
+    right: 20%;
+    display: none;
+}
+.final-banner {
+    z-index: 1000;
+    padding: 30px;
+    border-radius: 14px;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    text-align: center;
+    background-color: black;
+    display: none;
+}
 html,body{
      overscroll-behavior: none;
      height: 100%
@@ -221,7 +253,7 @@ html,body{
       border: 1px solid #ccc;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       padding: 16px;
-      z-index: 1000;
+      z-index: 850;
       border-radius: 8px;
       animation: slideUp 0.3s ease-out;
     }
@@ -253,7 +285,7 @@ html,body{
       font-size: 16px;
       cursor: pointer;
       color: #888;
-      z-index: 2100;
+      z-index: 870;
     }
 
     @keyframes slideUp {
